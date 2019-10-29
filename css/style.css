@@ -1,1 +1,198 @@
-/* TODO supply CSS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*variables for color and font*/
+:root {
+    --main-bg-color: white;
+    --main-text-color: #353535;
+    --container-bg-color: rgb(238, 238, 238);
+    --nav-bg-color: black;
+    --nav-text-color: lightgray;
+    --nav-hover-color: darkgray;
+    --nav-active: white;
+    --mason-border-color: #999;
+    --brand-color: black;
+    --font-serif-titles: 'Ubuntu', serif;
+    --font-serif-text: 'Montserrat', serif;
+    --container-bg-color: #eeeeee;
+    --masonry-bg-color: #fff;
+    --masonry-link: black;
+    --facebook-bg: #3B5998;
+    --twitter-bg: #55ACEE;
+    --github-bg: #000;
+    --icon-hover: goldenrod;
+    --icon-color: white;
+    --credit-hover-color: white;
+    --credit-hover-bg: black;
+    --calc-table-border: #ddd;
+    --math-color: white;
+    --math-bg-color: black;
+}
+
+/*fonts for major elements*/
+h1,h2,h3,h4,h5,h6,footer,h1 a,li a {
+    font-family: var(--font-serif-titles);
+}
+
+figcaption {
+    font-family: var(--font-serif-titles);
+    font-size: .7rem
+}
+
+p {
+    font-family: var(--font-serif-text);
+}
+
+/*brand style*/
+.brand a {
+    color: var(--brand-color);
+    text-decoration: none;
+}
+
+/*basic styles for container items*/
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+}
+
+.single-col-container>*,
+.container>* {
+  color: var(--main-text-color);
+  line-height: 1.5;
+  background: var(--container-bg-color);
+}
+
+.single-col-container nav,
+.container nav {
+  padding: 10px;
+}
+
+.container>aside,
+section {
+  padding: 20px;
+}
+
+footer {
+  padding: 0 10px;
+}
+
+/*nav styling*/
+.single-col-container nav,
+.container nav {
+  background-color: var(--nav-bg-color);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--nav-text-color);
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: none;
+}
+
+a.toggle {
+  text-decoration: none;
+}
+
+nav .active {
+  background-color: var(--nav-hover-color);
+  height: 50px;
+  line-height: 50px;
+}
+
+nav li {
+  text-align: center;
+}
+
+nav .active a {
+  color: var(--nav-active);
+}
+
+/*media query for large screen sizes and devices*/
+@media only screen and (min-width: 600px) {
+
+    /* grid */
+    .single-col-container,
+    .container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+    /* specific item styles */
+    .single-col-container,
+    .container header,
+    .container nav,
+    .container footer {
+      grid-column: span 4;
+    }
+  
+    .container section {
+      grid-column: span 3;
+    }
+  
+    /* nav styles */
+    nav ul li {
+      display: inline-block;
+      width: 100px;
+  
+    }
+  
+    /* hide toggle */
+    .toggle {
+      display: none;
+    }
+  
+    .header {
+      width: 100%;
+      height: auto;
+      background-image: url("../images/fibonacci-numbers.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+  
+  }
+
+  /*media query for small screen devices*/
+  @media only screen and (max-width: 599px) {
+
+    #nav {
+      transition: transform .3s ease-in-out;
+      top: 0;
+      bottom: 0;
+      position: fixed;
+      width: 300px;
+      right: -340px;
+    }
+  
+    #nav:target {
+      transform: translateX(-340px);
+    }
+  
+    .close {
+      text-align: right;
+      display: block;
+      text-decoration: none;
+      font-size: 3em;
+      position: relative;
+      top: -30px;
+    }
+  
+    .open {
+      text-align: left;
+      color: var(--main-text-color);
+      font-size: 2em;
+      padding-left: 5px;
+    }
+  
+  }
+
